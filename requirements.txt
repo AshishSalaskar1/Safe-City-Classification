@@ -7,3 +7,4 @@ numpy==1.19.5
 nltk==3.2.5
 matplotlib==3.2.2
 textstat==0.7.1
+streamlit>=0.83.0
