@@ -14,7 +14,23 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 class_labels = list(class_label_names.values())
 
-texts = np.load("texts.npy")
+texts = ['Catcalling and young boys following me near Marine Drive.',
+ 'on my way home I met boys by the roadside and I saw them whistling at my friend and calling her names',
+ 'i was standing with my friend then a police bus came and a police man on the last seat passed filthy expression',
+ 'ogling and catcalling',
+ 'In residential area, guys harrased a lil gal provoking her.',
+ 'i was touched by an old man in microvan ....',
+ 'We were walking when a few guys passed remarks against us.',
+ 'In class 12, while returning from my tuition classes, some of the boys passes lewd comments.',
+ 'During evening hours ,  two guys stopped the car and started commenting in a vulgar way and asked for lift etc...!',
+ 'Some men said very bad words to me and commented on my figure. They even took my pictures.',
+ 'It was during afternoon hours that I was touched and faces were made .',
+ 'My friend had a primary teacher in her school who used to behave ackwardly. If students would complain he would beat them without any reason.',
+ 'One of the male daily traveller used to take advantage of crowded bridge and used to touch and press ladies',
+ 'harassed in the evening',
+ 'My friend was harassed by her own boss at the reputed company. He kissed her forcefully without her will.',
+ 'Jubilee Hills Road Number 10  Extremely dark road to walk on. Absolute No No if you are alone. Must carry pepperspray in your hand when walking here even to catch an autorickshaw. Bikers will catcall/whistle relentlessly.'
+ ]
 
 def get_random():
     n = np.random.randint(0,len(texts))
