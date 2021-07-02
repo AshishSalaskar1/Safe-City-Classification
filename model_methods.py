@@ -16,7 +16,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from tensorflow.keras.preprocessing.text import Tokenizer
 from textblob import TextBlob
 
 
