@@ -25,7 +25,7 @@ from nltk.corpus import stopwords
 from nltk import pos_tag, word_tokenize, RegexpParser
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.metrics import accuracy_score, log_loss, roc_auc_score, f1_score, precision_score, recall_score
-
+# import gdown
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
@@ -36,10 +36,20 @@ class_label_names = {0:"None",1:"Staring",2:"Groping",3:"Commenting",4:"Commenti
 class_labels = {0:[0,0,0], 1:[0,1,0], 2:[0,0,1], 3:[1,0,0], 4:[1,1,0], 5:[0,1,1], 6:[1,0,1], 7:[1,1,1]}
 multi_label_to_class = {'[0 0 0]':0,'[0 1 0]':1,'[0 0 1]':2,'[1 0 0]':3,'[0 0 0]':4,'[0 0 0]':5,'[0 0 0]':6,'[0 0 0]':7}
 
-def download_drive(drive_id, output):
-    url = "https://drive.google.com/uc?id="+drive_id
-    output = output
-    gdown.download(url, output, quiet=False)
+# def download_drive(drive_id, output):
+#     url = "https://drive.google.com/uc?id="+drive_id
+#     output = output
+
+#     if output not in set(os.listdir(".")):
+#       gdown.download(url, output, quiet=False)
+
+
+# download_drive("1Z6bjXmyCaoEzXYo_tRDwLTsfeA2F3K3j","glove_vectors")
+
+with open('glove.pickle', 'rb') as f:
+  glove_vectors = pickle.load(f)
+  glove_words = set(glove_vectors.keys())
+
 
 def pre_process_text(phrase):
     '''Clean and lemmatize text'''
@@ -78,10 +88,6 @@ def count_POS(text, part_of_speech):
       count += 1
   return count
 
-
-with open('glove.pickle', 'rb') as f:
-  glove_vectors = pickle.load(f)
-  glove_words = set(glove_vectors.keys())
 
 # TF-IDF WEIGHTED W2V
 def tfdidf_w2v(data, tf_idf_words, tfidf_dict):
@@ -146,10 +152,13 @@ def final_function_1(data):
   Output : Predictions for input sentences
   '''
   data = DataProcessor(data).get_processed_data()
-  best_model = pickle.load(open('best_model.sav','rb'))
+  best_model = pickle.load(open('xgb_model.sav','rb'))
   predictions = best_model.predict(data)
   pred = [class_labels[x] for x in predictions]
   pred_labels = [class_label_names[x] for x in predictions]
 
   pred_prob = best_model.predict_proba(data)
   return pred_labels, pred_prob
+
+
+print(os.listdir("."))

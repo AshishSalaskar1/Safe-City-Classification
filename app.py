@@ -14,23 +14,25 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 class_labels = list(class_label_names.values())
 
-texts = ['Catcalling and young boys following me near Marine Drive.',
- 'on my way home I met boys by the roadside and I saw them whistling at my friend and calling her names',
- 'i was standing with my friend then a police bus came and a police man on the last seat passed filthy expression',
- 'ogling and catcalling',
- 'In residential area, guys harrased a lil gal provoking her.',
- 'i was touched by an old man in microvan ....',
- 'We were walking when a few guys passed remarks against us.',
- 'In class 12, while returning from my tuition classes, some of the boys passes lewd comments.',
- 'During evening hours ,  two guys stopped the car and started commenting in a vulgar way and asked for lift etc...!',
- 'Some men said very bad words to me and commented on my figure. They even took my pictures.',
- 'It was during afternoon hours that I was touched and faces were made .',
- 'My friend had a primary teacher in her school who used to behave ackwardly. If students would complain he would beat them without any reason.',
- 'One of the male daily traveller used to take advantage of crowded bridge and used to touch and press ladies',
- 'harassed in the evening',
- 'My friend was harassed by her own boss at the reputed company. He kissed her forcefully without her will.',
- 'Jubilee Hills Road Number 10  Extremely dark road to walk on. Absolute No No if you are alone. Must carry pepperspray in your hand when walking here even to catch an autorickshaw. Bikers will catcall/whistle relentlessly.'
- ]
+texts = [
+"I was going to my college in the evening and some guys standing in a group were constantly staring and smiling at me",
+"sometime ago, I was travelling in an autorickshaw in Dehli. I was wearing a dress, so  naturally my calfs were uncovered. Men on their bikes and even from their cars kept peeping inside the autorickshaw to see. Althrough wich was humilating and creepy. Reaction  I tried to ignore and look at my phone",
+"while walking towards the hostel two guys made weird facial expression which were inappropriate",
+"Everyday while I stand in my balcony,people stare in such a way that it causes discomfort",
+"While travelling at the bus, the man standing behind me was trying to touch me",
+"A man, regular in my bus and my route and after we both got off at the same stop, he touched me in a wrong place and i felt very bad",
+"there is a girl who was being touched aimlessly by boys in our school but she never reported to the teacher",
+"t was around 8 pm, i got off at the vishwavidyalaya metro station and was getting back to my hostel. i saw a guy following me. after a few minutes, he pulled me back to ask if we can be friends. He touched me inappropriately. i shouted 'no' and ran without looking back to my hostel",
+"Certain groups of boys were giving rude comments and giving vulgar expressions . It happened during afternoon ", "I live on JP Road very near to Chai Coffee, previously known as Barista and whenever I have to walk past that neighborhood, I always see a gang of people standing outside with their cars parked, blaring music and making comments. Once my niece was standing outside waiting for someone and one of the boys came up to her too. She got very scared. Also, there is a pan dabba next to Chai Coffee and I can see guys sitting on the wall drinking in public. The police know everything and don't do nothing. We are scared of complaining because we live in that area.",
+"A person was continuously staring amp making comments on my looks.",
+"I was all alone in the bus and a group of boys were whistling and commenting me. They even tried to touch me",
+"Staring and by making indecent expressions and touching and all.All this happens generally in Metro and Buses.Even if you just pass by the bus stands in the evening,you might be the victim of inappropriate comments and all",
+" This incident took place in Dtc bus no. 883 in morning.People in the bus pass comments and also try to find a reason to touch.This happens very often.",
+"Boy was continuously following me till I reached the metro station. He had passed comments and also touched me by his hand"
+"whistling and demeaning watching me on the dress that I was wearing while returning from a party."
+]
+
+# download_drive("1Z6bjXmyCaoEzXYo_tRDwLTsfeA2F3K3j","glove_vectors")
 
 def get_random():
     n = np.random.randint(0,len(texts))
@@ -42,13 +44,14 @@ def predict():
     if input_text == "":
         return
     result, prob = final_function_1([input_text])
-    st.markdown("Predicted Categories are : **"+result[0]+"**")
+    st.markdown("**Entered story/description: **"+input_text)
+    st.markdown("**Predicted Categories are : "+result[0]+"**")
 
     prob = [np.round(x,2) for x in prob[0]]
 
     ax = sns.barplot(prob ,class_labels, palette="winter", orient='h')
     ax.set_yticklabels(class_labels,rotation=0)
-    plt.title("Probabilities of each class")
+    plt.title("Probabilities of the Story belonging to each class")
     for index, value in enumerate(prob):
         plt.text(value, index,str(value))
     st.pyplot()
