@@ -44,9 +44,7 @@ As we noticed the majority of the classes belong to class 0, due to this when we
 - Model 1: Classify if the data belongs to class = 0 or not.
 For training this model we modify the dataset as follows: if class ≥ 1, the label=0 else label = 1
 - Model 2: If model 1 predicts class != 0, then predict the label from class 1–7. For training this model we only use points in the dataset which belong to Class 1–7
-<br>
-![](https://miro.medium.com/max/963/1*nR1g36AJvmqFmcmtKWbXqg.png)
-<br>
+- ![](https://miro.medium.com/max/963/1*nR1g36AJvmqFmcmtKWbXqg.png)
 Prediction Steps: Here we first pass the data to be predicted to Model 1 first, it checks if the sample belongs to Class 0 or not. If it doesn't belong to class 0 then we pass the sample to Model 2 which can then predict if the sample belongs to Classes 1 to 7.
 
 ## Deployment
