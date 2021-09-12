@@ -4,7 +4,7 @@ Implemented features
 1. Get predictions for entered story/description
 2. Along with predicted caegory also display the probabilities of the instance belonging to each one of the classes as predicted by the model.
 
-Blog Link : https://ashishsalaskar1.medium.com/tablenet-end-to-end-table-detection-and-tabular-data-extraction-from-scanned-document-images-13c846e8f8f5
+Blog Link : https://ashishsalaskar1.medium.com/tablenet-end-to-end-table-detection-and-tabular-data-extraction-from-scanned-document-images-13c846e8f8f5<br>
 Deployment link : https://safe-city-clf.herokuapp.com/
 
 ## Introduction
@@ -37,14 +37,16 @@ We try to extract features from the text descriptions which can help us further 
 In order to convert our text descriptions into numerical representations, we use the TF-IDF Weighted GloVe Embeddings techniques using the following steps
 - First, we load the pre-trained Glove vector and store the vector embeddings in a dictionary. The glove vector we use provides a 300-dimensional embedding vector for each word.
 - For each sentence, we do a weighted TF-IDF sum. We first initialize a vector with 300 zeros. Then for each valid word in the sentence, we add glove_embedding[word] + tf_idf_score[word] to the vector and finally divide it by summation of tf_idf values.
-- 
+
 ## Model Building
 ### Custom 2-Step Classifier
 As we noticed the majority of the classes belong to class 0, due to this when we observe the Confusion matrix of the trained models we see that the predictions favor Class 0. So in order to fix this issue, we try to build a model which follows a 2-step classification approach.
 - Model 1: Classify if the data belongs to class = 0 or not.
 For training this model we modify the dataset as follows: if class ≥ 1, the label=0 else label = 1
 - Model 2: If model 1 predicts class != 0, then predict the label from class 1–7. For training this model we only use points in the dataset which belong to Class 1–7
+<br>
 ![](https://miro.medium.com/max/963/1*nR1g36AJvmqFmcmtKWbXqg.png)
+<br>
 Prediction Steps: Here we first pass the data to be predicted to Model 1 first, it checks if the sample belongs to Class 0 or not. If it doesn't belong to class 0 then we pass the sample to Model 2 which can then predict if the sample belongs to Classes 1 to 7.
 
 ## Deployment
