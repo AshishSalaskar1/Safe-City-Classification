@@ -8,8 +8,8 @@ Blog Link : https://ashishsalaskar1.medium.com/tablenet-end-to-end-table-detecti
 Deployment link : https://safe-city-clf.herokuapp.com/
 
 ## Introduction
-Here our objective is to use short stories which were submitted online and to be able to automatically categorize each story submitted by a user. We will consider the user stories as our training data. We will try to build a Machine Learning model which will take these stories/descriptions as input and try to predict the categories of harassment it belongs to. The main thing to keep in mind here is that a description may belong to multiple categories. For example, a description could indicate both Commenting and Groping cases.
-Data-Source : https://github.com/swkarlekar/safecity
+Here our objective is to use short stories which were submitted online and to be able to automatically categorize each story submitted by a user. We will consider the user stories as our training data. We will try to build a Machine Learning model which will take these stories/descriptions as input and try to predict the categories of harassment it belongs to. The main thing to keep in mind here is that a description may belong to multiple categories. For example, a description could indicate both Commenting and Groping cases.<br>
+Data-Source : https://github.com/swkarlekar/safecity <br>
 Authors: Sweta Karlekar & Mohit Bansal, University of North Carolina at Chapel Hill
 
 The dataset has 7201 training samples, 990 validation samples, and 1701 test samples. Each data sample consists of a Description of the incident followed by whether it belongs to classes Commenting, Staring, and Groping. As it is a Multi-Label classification problem, each data point can belong to multiple classes.
