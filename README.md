@@ -4,7 +4,7 @@ Implemented features
 1. Get predictions for entered story/description
 2. Along with predicted caegory also display the probabilities of the instance belonging to each one of the classes as predicted by the model.
 
-Blog Link : https://ashishsalaskar1.medium.com/tablenet-end-to-end-table-detection-and-tabular-data-extraction-from-scanned-document-images-13c846e8f8f5<br>
+Blog Link : https://ashishsalaskar1.medium.com/classification-of-sexual-harassment-personal-stories-53e4af2554c6 <br>
 Deployment link : https://safe-city-clf.herokuapp.com/
 
 ## Introduction
